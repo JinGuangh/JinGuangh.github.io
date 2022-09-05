@@ -8,13 +8,15 @@
   <link rel="dns-prefetch" href="http://example.com">
   <title>Hexo</title>
   <meta name="viewport" content="width=device-width, initial-scale=1, maximum-scale=1">
-  <meta name="description" content="GuanghuiJin的个人博客，主要涉及前端">
-<meta property="og:type" content="website">
+  <meta name="description" content="一、Vue基础1、简介构建用户界面的渐进式框架，采用自底向上增量开发的设计，只关注视图层，完全有能力驱动采用单文件组件和Vue生态系统支持的库开发的复杂单页应用。目标是通过尽可能简单的API实现响应的数据绑定和组合的视图组件。 声明式渲染–组件系统–客户端路由–大规模状态管理–构建工具 1.2、声明式渲染采用简洁的模板语法来声明式将数据渲染进DOM的系统 123456789101112131415">
+<meta property="og:type" content="article">
 <meta property="og:title" content="Hexo">
-<meta property="og:url" content="http://example.com/index.html">
+<meta property="og:url" content="http://example.com/2022/08/31/vue/index.html">
 <meta property="og:site_name" content="Hexo">
-<meta property="og:description" content="GuanghuiJin的个人博客，主要涉及前端">
+<meta property="og:description" content="一、Vue基础1、简介构建用户界面的渐进式框架，采用自底向上增量开发的设计，只关注视图层，完全有能力驱动采用单文件组件和Vue生态系统支持的库开发的复杂单页应用。目标是通过尽可能简单的API实现响应的数据绑定和组合的视图组件。 声明式渲染–组件系统–客户端路由–大规模状态管理–构建工具 1.2、声明式渲染采用简洁的模板语法来声明式将数据渲染进DOM的系统 123456789101112131415">
 <meta property="og:locale" content="en_US">
+<meta property="article:published_time" content="2022-08-31T13:43:02.249Z">
+<meta property="article:modified_time" content="2022-09-03T14:40:54.934Z">
 <meta property="article:author" content="GuanghuiJin">
 <meta name="twitter:card" content="summary">
   
@@ -161,346 +163,7 @@
             <canvas data-colors="#eaeaea" data-sectionHeight="100" data-contentId="js-content" id="myCanvas1" class="anm-canvas"></canvas>
           </div>
           <div id="js-content" class="content-ll">
-            
-  
-    <article id="post-Promise的实例和静态方法" class="article article-type-post  article-index" itemscope itemprop="blogPost">
-  <div class="article-inner">
-    
-      <header class="article-header">
-        
-  
-    <h1 itemprop="name">
-      <a class="article-title" href="/2022/09/02/Promise%E7%9A%84%E5%AE%9E%E4%BE%8B%E5%92%8C%E9%9D%99%E6%80%81%E6%96%B9%E6%B3%95/">Promise的静态方法、实例方法</a>
-    </h1>
-  
-
-        
-        <a href="/2022/09/02/Promise%E7%9A%84%E5%AE%9E%E4%BE%8B%E5%92%8C%E9%9D%99%E6%80%81%E6%96%B9%E6%B3%95/" class="archive-article-date">
-  	<time datetime="2022-09-01T16:00:00.000Z" itemprop="datePublished"><i class="icon-calendar icon"></i>2022-09-02</time>
-</a>
-        
-      </header>
-    
-    <div class="article-entry" itemprop="articleBody">
-      
-        <h3 id="1、三种状态"><a href="#1、三种状态" class="headerlink" title="1、三种状态"></a>1、三种状态</h3><ul>
-<li>pending（<em>待定</em>）初始状态，既没有被兑现，也没有被拒绝</li>
-<li>fulfilled（<em>已兑现</em>）意味着操作成功完成</li>
-<li>rejected（<em>已拒绝</em>）意味着操作失败</li>
-</ul>
-<h3 id="2、静态方法"><a href="#2、静态方法" class="headerlink" title="2、静态方法"></a>2、静态方法</h3><p><code>Promise.all(iterable)</code></p>
-<ul>
-<li><p>返回一个新的 promise 对象，等到所有的 promise 对象都成功或有任意一个 promise 失败。</p>
-</li>
-<li><p>如果所有的 promise 都成功了，把一个包含 iterable 里所有 promise 返回值的数组作为成功回调的返回值。顺序跟 iterable 的顺序保持一致。</p>
-</li>
-<li><p>一旦有任意一个 iterable 里面的 promise 对象失败则立即以该 promise 对象失败的理由来拒绝这个新的 promise。</p>
-</li>
-</ul>
-<figure class="highlight javascript"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br></pre></td><td class="code"><pre><span class="line"><span class="keyword">const</span> p = <span class="title class_">Promise</span>.<span class="title function_">all</span>([p1, p2, p3]);</span><br><span class="line"><span class="string">`注：Array、Map、Set都属于ES6的iterable类型`</span></span><br></pre></td></tr></table></figure>
-
-<p><code>Promise.allSettled(iterable)</code><br>等到所有 promise 都已敲定（每个 promise 都已兑现或已拒绝）。返回一个 promise，该 promise 在所有 promise 都敲定后完成，并兑现一个对象数组，其中的对象对应每个 promise 的结果。确保不会造成时序上的冲突</p>
-<p><code>Promise.any(iterable)</code></p>
-<ul>
-<li>接收一个 promise 对象的集合，当其中的任意一个 promise 成功，就返回那个成功的 promise 的值。</li>
-<li>如果可迭代对象中没有一个 promise 成功,就返回一个失败的 promise 和AggregateError类型的实例，它是 Error 的一个子类，用于把单一的错误集合在一起。</li>
-</ul>
-<figure class="highlight javascript"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br></pre></td><td class="code"><pre><span class="line"><span class="keyword">const</span> pErr = <span class="keyword">new</span> <span class="title class_">Promise</span>(<span class="function">(<span class="params">resolve, reject</span>) =&gt;</span> &#123;</span><br><span class="line">  <span class="title function_">reject</span>(<span class="string">&quot;总是失败&quot;</span>);</span><br><span class="line">&#125;);</span><br><span class="line"></span><br><span class="line"><span class="keyword">const</span> pSlow = <span class="keyword">new</span> <span class="title class_">Promise</span>(<span class="function">(<span class="params">resolve, reject</span>) =&gt;</span> &#123;</span><br><span class="line">  <span class="built_in">setTimeout</span>(resolve, <span class="number">500</span>, <span class="string">&quot;最终完成&quot;</span>);</span><br><span class="line">&#125;);</span><br><span class="line"></span><br><span class="line"><span class="keyword">const</span> pFast = <span class="keyword">new</span> <span class="title class_">Promise</span>(<span class="function">(<span class="params">resolve, reject</span>) =&gt;</span> &#123;</span><br><span class="line">  <span class="built_in">setTimeout</span>(resolve, <span class="number">100</span>, <span class="string">&quot;很快完成&quot;</span>);</span><br><span class="line">&#125;);</span><br><span class="line"></span><br><span class="line"><span class="title class_">Promise</span>.<span class="title function_">any</span>([pErr, pSlow, pFast]).<span class="title function_">then</span>(<span class="function">(<span class="params">value</span>) =&gt;</span> &#123;</span><br><span class="line">  <span class="variable language_">console</span>.<span class="title function_">log</span>(value);</span><br><span class="line">  <span class="comment">//很快完成</span></span><br><span class="line">&#125;)</span><br></pre></td></tr></table></figure>
-
-<p><code>Promise.race(iterable)</code><br>等到任意一个 promise 的状态变为已敲定。当 iterable 参数里的任意一个子 promise 成功或失败后，父 promise 马上也会用子 promise 的成功返回值或失败详情作为参数调用父 promise 绑定的相应处理函数，并返回该 promise 对象。</p>
-<figure class="highlight javascript"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br></pre></td><td class="code"><pre><span class="line"><span class="keyword">const</span> p = <span class="title class_">Promise</span>.<span class="title function_">race</span>([p1, p2, p3]);</span><br><span class="line"><span class="comment">//只要p1、p2、p3之中有一个实例率先改变状态，p的状态就跟着改变</span></span><br><span class="line"><span class="comment">//率先改变的 Promise 实例的返回值则传递给p的回调函数</span></span><br></pre></td></tr></table></figure>
-
-<p><code>Promise.reject(reason)</code><br>返回一个状态为已拒绝的 Promise 对象，并将给定的失败信息传递给对应的处理函数。</p>
-<figure class="highlight javascript"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br></pre></td><td class="code"><pre><span class="line"><span class="keyword">const</span> p = <span class="title class_">Promise</span>.<span class="title function_">reject</span>(<span class="string">&#x27;出错了&#x27;</span>)</span><br><span class="line"></span><br><span class="line">等同于</span><br><span class="line"><span class="keyword">const</span> p = <span class="keyword">new</span> <span class="title class_">Promise</span>(<span class="function">(<span class="params">resolve, reject</span>) =&gt;</span> <span class="title function_">reject</span>(<span class="string">&#x27;出错了&#x27;</span>))</span><br><span class="line">p.<span class="title function_">then</span>(<span class="literal">null</span>, <span class="keyword">function</span> (<span class="params">s</span>) &#123;<span class="variable language_">console</span>.<span class="title function_">log</span>(s)&#125;)</span><br><span class="line"><span class="comment">//出错了 Promise.reject()方法的参数，会原封不动地变成后续方法的参数</span></span><br></pre></td></tr></table></figure>
-
-<p><code>Promise.resolve(value)</code></p>
-<ul>
-<li><p>返回一个状态由给定 value 决定的 Promise 对象。</p>
-<ul>
-<li>如果该值是 thenable（即，带有 then 方法的对象），返回的Promise 对象的最终状态由 then 方法执行结果决定；</li>
-<li>否则，返回的 Promise 对象状态为已兑现，并且将该 value 传递给对应的 then 方法。</li>
-</ul>
-</li>
-<li><p>通常而言，如果你不知道一个值是否是 promise 对象，使用 Promise.resolve(value) 来返回一个 Promise 对象，这样就能将该 value 以 promise 对象形式使用。</p>
-</li>
-</ul>
-<h3 id="3、实例方法"><a href="#3、实例方法" class="headerlink" title="3、实例方法"></a>3、实例方法</h3><p><code>Promise.prototype.catch()</code><br>当出现异常则需要catch方法进行捕获</p>
-<figure class="highlight javascript"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">promise.<span class="title function_">then</span>(<span class="function"><span class="params">result</span> =&gt;</span>&#123;...&#125;).<span class="title function_">catch</span>(<span class="function"><span class="params">error</span> =&gt;</span> &#123;...&#125;)</span><br></pre></td></tr></table></figure>
-
-<p><code>Promise.prototype.then()</code></p>
-<ul>
-<li>then是 实例状态发生改变时的回调函数，参数1：resolved状态的回调函数，参数2：rejected状态的回调函数</li>
-<li>then方法返回的一个新的Promise实例，也是promise能链式书写的原因</li>
-</ul>
-<figure class="highlight javascript"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">promise.<span class="title function_">then</span>(<span class="function"><span class="params">result</span> =&gt;</span> &#123;...&#125;)</span><br></pre></td></tr></table></figure>
-
-<p><code>Promise.prototype.finally()</code><br>方法用于指定不管Promise对象最后状态如何都会执行的操作</p>
-<figure class="highlight javascript"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">promise.<span class="title function_">then</span>(<span class="function"><span class="params">result</span> =&gt;</span> &#123;...&#125;).<span class="title function_">catch</span>(<span class="function"><span class="params">error</span> =&gt;</span> &#123;...&#125;).<span class="title function_">finally</span>(<span class="function">() =&gt;</span> &#123;...&#125;)</span><br></pre></td></tr></table></figure>
-
-<h3 id="4、语法糖-Async-x2F-Await"><a href="#4、语法糖-Async-x2F-Await" class="headerlink" title="4、语法糖-Async&#x2F;Await"></a>4、语法糖-Async&#x2F;Await</h3><p>Promise的语法糖async await可以更优雅的处理异步。</p>
-<ul>
-<li>async 可以单独存在, 该关键字声明的函数返回的是一个 Promise 对象。</li>
-</ul>
-<figure class="highlight javascript"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br></pre></td><td class="code"><pre><span class="line"><span class="keyword">async</span> funtion <span class="title function_">add</span>(<span class="params"></span>)&#123;</span><br><span class="line">    <span class="keyword">return</span> <span class="number">1</span></span><br><span class="line">&#125;</span><br><span class="line"><span class="title function_">add</span>()</span><br><span class="line"><span class="title function_">add</span>() <span class="keyword">instanceof</span> <span class="title class_">Promise</span> <span class="comment">// true</span></span><br></pre></td></tr></table></figure>
-
-<ul>
-<li>await 不可以单独存在，必须要配合 async 一起存在使用</li>
-</ul>
-<figure class="highlight javascript"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br></pre></td><td class="code"><pre><span class="line"><span class="keyword">function</span> <span class="title function_">sub</span>(<span class="params"></span>) &#123;</span><br><span class="line">    <span class="keyword">await</span> <span class="number">1</span></span><br><span class="line">&#125;</span><br><span class="line"><span class="comment">// 这个方法定义就不满足语法的，会如下报错</span></span><br><span class="line"><span class="comment">// Uncaught SyntaxError: await is only valid in async function</span></span><br></pre></td></tr></table></figure>
-
-<ul>
-<li>async await 让异步处理更优雅</li>
-</ul>
-<figure class="highlight javascript"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br><span class="line">19</span><br><span class="line">20</span><br><span class="line">21</span><br></pre></td><td class="code"><pre><span class="line"><span class="keyword">let</span> fs = <span class="built_in">require</span>(<span class="string">&#x27;fs&#x27;</span>)</span><br><span class="line"><span class="keyword">var</span> gen = <span class="keyword">async</span> <span class="keyword">function</span> (<span class="params"></span>) &#123;</span><br><span class="line">  <span class="keyword">const</span> f1 = <span class="keyword">await</span> <span class="title function_">readFile</span>(<span class="string">&#x27;files/a.txt&#x27;</span>);<span class="comment">//封装一个promise对象</span></span><br><span class="line">  <span class="variable language_">console</span>.<span class="title function_">log</span>(f1)</span><br><span class="line">  <span class="keyword">const</span> f2 = <span class="keyword">await</span> <span class="title function_">readFile</span>(<span class="string">&#x27;files/b.txt&#x27;</span>);</span><br><span class="line">  <span class="variable language_">console</span>.<span class="title function_">log</span>(f2)</span><br><span class="line">  <span class="keyword">const</span> f3 = <span class="keyword">await</span> <span class="title function_">readFile</span>(<span class="string">&#x27;files/c.txt&#x27;</span>);</span><br><span class="line">  <span class="variable language_">console</span>.<span class="title function_">log</span>(f3)</span><br><span class="line">&#125;;</span><br><span class="line"><span class="keyword">var</span> readFile = <span class="keyword">function</span> (<span class="params">path</span>) &#123;</span><br><span class="line">  <span class="keyword">return</span> <span class="keyword">new</span> <span class="title class_">Promise</span>(<span class="function">(<span class="params">resolve, reject</span>) =&gt;</span> &#123;</span><br><span class="line">    fs.<span class="title function_">readFile</span>(path, <span class="string">&#x27;utf-8&#x27;</span>, <span class="keyword">function</span> (<span class="params">err, data</span>) &#123;</span><br><span class="line">      <span class="keyword">if</span> (!err) &#123;</span><br><span class="line">        <span class="title function_">resolve</span>(data)</span><br><span class="line">      &#125; <span class="keyword">else</span> &#123;</span><br><span class="line">        <span class="title function_">reject</span>(err)</span><br><span class="line">      &#125;</span><br><span class="line">    &#125;);</span><br><span class="line">  &#125;)</span><br><span class="line">&#125;</span><br><span class="line"><span class="keyword">var</span> obj = <span class="title function_">gen</span>();</span><br></pre></td></tr></table></figure>
-
-
-      
-
-      
-    </div>
-    <div class="article-info article-info-index">
-      
-      
-	<div class="article-tag tagcloud">
-		<i class="icon-price-tags icon"></i>
-		<ul class="article-tag-list">
-			 
-        		<li class="article-tag-list-item">
-        			<a href="javascript:void(0)" class="js-tag article-tag-list-link color3">Promise</a>
-        		</li>
-      		
-		</ul>
-	</div>
-
-      
-
-      
-        <p class="article-more-link">
-          <a class="article-more-a" href="/2022/09/02/Promise%E7%9A%84%E5%AE%9E%E4%BE%8B%E5%92%8C%E9%9D%99%E6%80%81%E6%96%B9%E6%B3%95/">展开全文 >></a>
-        </p>
-      
-
-      
-      <div class="clearfix"></div>
-    </div>
-  </div>
-</article>
-
-<aside class="wrap-side-operation">
-    <div class="mod-side-operation">
-        
-        <div class="jump-container" id="js-jump-container" style="display:none;">
-            <a href="javascript:void(0)" class="mod-side-operation__jump-to-top">
-                <i class="icon-font icon-back"></i>
-            </a>
-            <div id="js-jump-plan-container" class="jump-plan-container" style="top: -11px;">
-                <i class="icon-font icon-plane jump-plane"></i>
-            </div>
-        </div>
-        
-        
-    </div>
-</aside>
-
-
-
-
-  
-    <article id="post-vue工程化" class="article article-type-post  article-index" itemscope itemprop="blogPost">
-  <div class="article-inner">
-    
-      <header class="article-header">
-        
-  
-    <h1 itemprop="name">
-      <a class="article-title" href="/2022/09/01/vue%E5%B7%A5%E7%A8%8B%E5%8C%96/">vue工程化-webpack构建</a>
-    </h1>
-  
-
-        
-        <a href="/2022/09/01/vue%E5%B7%A5%E7%A8%8B%E5%8C%96/" class="archive-article-date">
-  	<time datetime="2022-09-01T12:40:18.000Z" itemprop="datePublished"><i class="icon-calendar icon"></i>2022-09-01</time>
-</a>
-        
-      </header>
-    
-    <div class="article-entry" itemprop="articleBody">
-      
-        <h2 id="1、webpack构建"><a href="#1、webpack构建" class="headerlink" title="1、webpack构建"></a>1、webpack构建</h2><p>npm init -y<br>npm i -d webpack webpack-cli webpack-dev-server</p>
-<p>创建文件夹<br>    webpack.config.js</p>
-<figure class="highlight js"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br><span class="line">19</span><br><span class="line">20</span><br><span class="line">21</span><br><span class="line">22</span><br><span class="line">23</span><br><span class="line">24</span><br><span class="line">25</span><br><span class="line">26</span><br><span class="line">27</span><br><span class="line">28</span><br><span class="line">29</span><br><span class="line">30</span><br><span class="line">31</span><br><span class="line">32</span><br><span class="line">33</span><br><span class="line">34</span><br><span class="line">35</span><br><span class="line">36</span><br><span class="line">37</span><br><span class="line">38</span><br><span class="line">39</span><br><span class="line">40</span><br><span class="line">41</span><br><span class="line">42</span><br><span class="line">43</span><br><span class="line">44</span><br><span class="line">45</span><br><span class="line">46</span><br><span class="line">47</span><br><span class="line">48</span><br><span class="line">49</span><br></pre></td><td class="code"><pre><span class="line"><span class="keyword">const</span> path = <span class="built_in">require</span>(<span class="string">&#x27;path&#x27;</span>)</span><br><span class="line"><span class="keyword">const</span> <span class="title class_">HtmlWebpackPlugin</span> = <span class="built_in">require</span>(<span class="string">&#x27;html-webpack-plugin&#x27;</span>)</span><br><span class="line"><span class="keyword">const</span> &#123;<span class="title class_">VueLoaderPlugin</span>&#125; = <span class="built_in">require</span>(<span class="string">&#x27;vue-loader&#x27;</span>)</span><br><span class="line"></span><br><span class="line"><span class="variable language_">module</span>.<span class="property">exports</span> = &#123;</span><br><span class="line">    <span class="comment">// 定义的模式</span></span><br><span class="line">    <span class="attr">mode</span>: <span class="string">&#x27;development&#x27;</span>,</span><br><span class="line">    <span class="comment">// 关闭source-map  在开发时，可以进行代码调试，在生产时，一定要关闭，为安全</span></span><br><span class="line">    <span class="comment">// vue.map</span></span><br><span class="line">    <span class="attr">devtool</span>: <span class="literal">false</span>,</span><br><span class="line">    <span class="comment">// 入口</span></span><br><span class="line">    <span class="attr">entry</span>: <span class="string">&#x27;./src/main.js&#x27;</span>,</span><br><span class="line">    <span class="comment">// 出口</span></span><br><span class="line">    <span class="attr">output</span>: &#123;</span><br><span class="line">        <span class="attr">path</span>: path.<span class="title function_">resolve</span>(<span class="string">&#x27;dist&#x27;</span>),</span><br><span class="line">        <span class="attr">filename</span>: <span class="string">&quot;index.js&quot;</span></span><br><span class="line">    &#125;,</span><br><span class="line">    <span class="comment">// 开发环境</span></span><br><span class="line">    <span class="attr">devServer</span>: &#123;</span><br><span class="line">        <span class="attr">port</span>: <span class="number">8080</span></span><br><span class="line">    &#125;,</span><br><span class="line">    <span class="comment">// loader</span></span><br><span class="line">    <span class="attr">module</span>: &#123;</span><br><span class="line">        <span class="attr">rules</span>: [</span><br><span class="line">            &#123;</span><br><span class="line">                <span class="attr">test</span>: <span class="regexp">/\.vue$/i</span>,</span><br><span class="line">                <span class="attr">loader</span>: <span class="string">&#x27;vue-loader&#x27;</span></span><br><span class="line">            &#125;,</span><br><span class="line">            &#123;</span><br><span class="line">                <span class="attr">test</span>: <span class="regexp">/\.js$/</span>,</span><br><span class="line">                <span class="attr">exclude</span>: <span class="regexp">/node_modules/</span>,</span><br><span class="line">                <span class="attr">loader</span>: <span class="string">&#x27;babel-loader&#x27;</span></span><br><span class="line">            &#125;</span><br><span class="line">        ]</span><br><span class="line">    &#125;,</span><br><span class="line">    <span class="comment">// 插件</span></span><br><span class="line">    <span class="attr">plugins</span>: [</span><br><span class="line">        <span class="comment">// 它会把index.js文件，自动的加载到html文件中</span></span><br><span class="line">        <span class="keyword">new</span> <span class="title class_">HtmlWebpackPlugin</span>(&#123;</span><br><span class="line">            <span class="attr">template</span>: path.<span class="title function_">resolve</span>(<span class="string">&#x27;public/index.html&#x27;</span>)</span><br><span class="line">        &#125;),</span><br><span class="line">        <span class="keyword">new</span> <span class="title class_">VueLoaderPlugin</span>()</span><br><span class="line">    ],</span><br><span class="line">    <span class="attr">resolve</span>: &#123;</span><br><span class="line">        <span class="attr">extensions</span>: [<span class="string">&#x27;.vue&#x27;</span>, <span class="string">&#x27;.js&#x27;</span>]</span><br><span class="line">    &#125;</span><br><span class="line">&#125;</span><br><span class="line"></span><br><span class="line"></span><br></pre></td></tr></table></figure>
-
-<p>package.json</p>
-<figure class="highlight json"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br><span class="line">19</span><br><span class="line">20</span><br><span class="line">21</span><br><span class="line">22</span><br></pre></td><td class="code"><pre><span class="line"><span class="attr">&quot;scripts&quot;</span><span class="punctuation">:</span> <span class="punctuation">&#123;</span></span><br><span class="line">    <span class="attr">&quot;serve&quot;</span><span class="punctuation">:</span> <span class="string">&quot;webpack server&quot;</span><span class="punctuation">,</span></span><br><span class="line">    <span class="attr">&quot;build&quot;</span><span class="punctuation">:</span> <span class="string">&quot;webpack&quot;</span></span><br><span class="line">  <span class="punctuation">&#125;</span><span class="punctuation">,</span></span><br><span class="line">  <span class="attr">&quot;keywords&quot;</span><span class="punctuation">:</span> <span class="punctuation">[</span><span class="punctuation">]</span><span class="punctuation">,</span></span><br><span class="line">  <span class="attr">&quot;author&quot;</span><span class="punctuation">:</span> <span class="string">&quot;&quot;</span><span class="punctuation">,</span></span><br><span class="line">  <span class="attr">&quot;license&quot;</span><span class="punctuation">:</span> <span class="string">&quot;ISC&quot;</span><span class="punctuation">,</span></span><br><span class="line">  <span class="attr">&quot;dependencies&quot;</span><span class="punctuation">:</span> <span class="punctuation">&#123;</span></span><br><span class="line">    <span class="attr">&quot;vue&quot;</span><span class="punctuation">:</span> <span class="string">&quot;^2.7.10&quot;</span><span class="punctuation">,</span></span><br><span class="line">    <span class="attr">&quot;webpack&quot;</span><span class="punctuation">:</span> <span class="string">&quot;^5.74.0&quot;</span><span class="punctuation">,</span></span><br><span class="line">    <span class="attr">&quot;webpack-cli&quot;</span><span class="punctuation">:</span> <span class="string">&quot;^4.10.0&quot;</span><span class="punctuation">,</span></span><br><span class="line">    <span class="attr">&quot;webpack-dev-server&quot;</span><span class="punctuation">:</span> <span class="string">&quot;^4.10.1&quot;</span></span><br><span class="line">  <span class="punctuation">&#125;</span><span class="punctuation">,</span></span><br><span class="line">  <span class="attr">&quot;devDependencies&quot;</span><span class="punctuation">:</span> <span class="punctuation">&#123;</span></span><br><span class="line">    <span class="attr">&quot;@babel/core&quot;</span><span class="punctuation">:</span> <span class="string">&quot;^7.18.13&quot;</span><span class="punctuation">,</span></span><br><span class="line">    <span class="attr">&quot;@babel/preset-env&quot;</span><span class="punctuation">:</span> <span class="string">&quot;^7.18.10&quot;</span><span class="punctuation">,</span></span><br><span class="line">    <span class="attr">&quot;babel-loader&quot;</span><span class="punctuation">:</span> <span class="string">&quot;^8.2.5&quot;</span><span class="punctuation">,</span></span><br><span class="line">    <span class="attr">&quot;core-js&quot;</span><span class="punctuation">:</span> <span class="string">&quot;^3.25.0&quot;</span><span class="punctuation">,</span></span><br><span class="line">    <span class="attr">&quot;html-webpack-plugin&quot;</span><span class="punctuation">:</span> <span class="string">&quot;^5.5.0&quot;</span><span class="punctuation">,</span></span><br><span class="line">    <span class="attr">&quot;vue-loader&quot;</span><span class="punctuation">:</span> <span class="string">&quot;^15.10.0&quot;</span><span class="punctuation">,</span></span><br><span class="line">    <span class="attr">&quot;vue-template-compiler&quot;</span><span class="punctuation">:</span> <span class="string">&quot;^2.7.10&quot;</span></span><br><span class="line">  <span class="punctuation">&#125;</span></span><br></pre></td></tr></table></figure>
-
-<p>npm run build 运行后添加红色部分代码</p>
-<p>npm run serve  出现8080地址就对了</p>
-<p>npm i -D html-webpack-plugin  运行后添加蓝色标识地方</p>
-<p>创建文件夹 public<br>       创建文件 index.html </p>
-<figure class="highlight html"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br></pre></td><td class="code"><pre><span class="line"><span class="meta">&lt;!DOCTYPE <span class="keyword">html</span>&gt;</span></span><br><span class="line"><span class="tag">&lt;<span class="name">html</span> <span class="attr">lang</span>=<span class="string">&quot;en&quot;</span>&gt;</span></span><br><span class="line"><span class="tag">&lt;<span class="name">head</span>&gt;</span></span><br><span class="line">    <span class="tag">&lt;<span class="name">meta</span> <span class="attr">charset</span>=<span class="string">&quot;UTF-8&quot;</span>&gt;</span></span><br><span class="line">    <span class="tag">&lt;<span class="name">title</span>&gt;</span>vue工程化--单入口项目<span class="tag">&lt;/<span class="name">title</span>&gt;</span></span><br><span class="line"><span class="tag">&lt;/<span class="name">head</span>&gt;</span></span><br><span class="line"><span class="tag">&lt;<span class="name">body</span>&gt;</span></span><br><span class="line">    <span class="tag">&lt;<span class="name">div</span> <span class="attr">id</span>=<span class="string">&quot;app&quot;</span>&gt;</span><span class="tag">&lt;/<span class="name">div</span>&gt;</span></span><br><span class="line"><span class="tag">&lt;/<span class="name">body</span>&gt;</span></span><br><span class="line"><span class="tag">&lt;/<span class="name">html</span>&gt;</span></span><br></pre></td></tr></table></figure>
-
-<p>npm run serve</p>
-<figure class="highlight js"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br></pre></td><td class="code"><pre><span class="line"><span class="keyword">import</span> <span class="title class_">Vue</span> <span class="keyword">from</span> <span class="string">&#x27;vue&#x27;</span></span><br><span class="line"><span class="keyword">import</span> app <span class="keyword">from</span> <span class="string">&#x27;./app.vue&#x27;</span></span><br><span class="line"></span><br><span class="line"><span class="keyword">new</span> <span class="title class_">Vue</span>(&#123;</span><br><span class="line">    <span class="attr">el</span>: <span class="string">&#x27;#app&#x27;</span>,</span><br><span class="line">    <span class="comment">// render: h =&gt; h(&#x27;h3&#x27;, null, &#x27;App&#x27;)</span></span><br><span class="line">    <span class="attr">render</span>: <span class="function"><span class="params">h</span> =&gt;</span> <span class="title function_">h</span>(app)</span><br><span class="line">&#125;)</span><br></pre></td></tr></table></figure>
-
-<p>npm i -s vue@2</p>
-<p>创建app.vue文件</p>
-<figure class="highlight plaintext"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br><span class="line">19</span><br><span class="line">20</span><br><span class="line">21</span><br><span class="line">22</span><br><span class="line">23</span><br><span class="line">24</span><br><span class="line">25</span><br></pre></td><td class="code"><pre><span class="line">&lt;template&gt;</span><br><span class="line">  &lt;div&gt;</span><br><span class="line">    &lt;h3&gt;我是App组件&lt;/h3&gt;</span><br><span class="line">    &lt;hr&gt;</span><br><span class="line">    &lt;child&gt;&lt;/child&gt;</span><br><span class="line">  &lt;/div&gt;</span><br><span class="line">&lt;/template&gt;</span><br><span class="line"></span><br><span class="line">&lt;script&gt;</span><br><span class="line">import child from &quot;./components/child&quot;;</span><br><span class="line"></span><br><span class="line">export default &#123;</span><br><span class="line">  components: &#123;</span><br><span class="line">    child</span><br><span class="line">  &#125;,</span><br><span class="line">  data() &#123;</span><br><span class="line">    return &#123;&#125;</span><br><span class="line">  &#125;</span><br><span class="line">&#125;</span><br><span class="line">&lt;/script&gt;</span><br><span class="line"></span><br><span class="line">&lt;style scoped&gt;</span><br><span class="line"></span><br><span class="line">&lt;/style&gt;</span><br><span class="line"></span><br></pre></td></tr></table></figure>
-
-<p> npm install -D vue-loader@15 vue-template-compiler@2 </p>
-<p>npm run serve</p>
-<p>创建文件夹 component<br>         创建文件 child.vue </p>
-<figure class="highlight plaintext"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br><span class="line">19</span><br></pre></td><td class="code"><pre><span class="line">&lt;template&gt;</span><br><span class="line">  &lt;div&gt;</span><br><span class="line">    &lt;h3&gt;child&lt;/h3&gt;</span><br><span class="line">  &lt;/div&gt;</span><br><span class="line">&lt;/template&gt;</span><br><span class="line"></span><br><span class="line">&lt;script&gt;</span><br><span class="line">export default &#123;</span><br><span class="line">  name: &quot;child&quot;,</span><br><span class="line">  data() &#123;</span><br><span class="line">    return &#123;&#125;</span><br><span class="line">  &#125;</span><br><span class="line">&#125;</span><br><span class="line">&lt;/script&gt;</span><br><span class="line"></span><br><span class="line">&lt;style scoped&gt;</span><br><span class="line"></span><br><span class="line">&lt;/style&gt;</span><br><span class="line"></span><br></pre></td></tr></table></figure>
-
-<p>npm i -D babel-loader @babel&#x2F;core @babel&#x2F;preset-env core-js</p>
-<p> 创建文件 babel.config.js</p>
-<figure class="highlight js"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br></pre></td><td class="code"><pre><span class="line"><span class="variable language_">module</span>.<span class="property">exports</span> = &#123;</span><br><span class="line">    <span class="attr">presets</span>: [</span><br><span class="line">        [</span><br><span class="line">            <span class="string">&#x27;@babel/preset-env&#x27;</span>,</span><br><span class="line">            &#123;</span><br><span class="line">                <span class="attr">useBuiltIns</span>: <span class="string">&#x27;usage&#x27;</span>,</span><br><span class="line">                <span class="attr">corejs</span>: <span class="number">3</span>,</span><br><span class="line">                <span class="attr">targets</span>: &#123;</span><br><span class="line">                    <span class="attr">ie</span>: <span class="number">8</span></span><br><span class="line">                &#125;</span><br><span class="line">            &#125;</span><br><span class="line">        ]</span><br><span class="line">    ]</span><br><span class="line">&#125;</span><br><span class="line"></span><br></pre></td></tr></table></figure>
-
-<p>npm run serve   </p>
-
-      
-
-      
-    </div>
-    <div class="article-info article-info-index">
-      
-      
-	<div class="article-tag tagcloud">
-		<i class="icon-price-tags icon"></i>
-		<ul class="article-tag-list">
-			 
-        		<li class="article-tag-list-item">
-        			<a href="javascript:void(0)" class="js-tag article-tag-list-link color4">vue</a>
-        		</li>
-      		 
-        		<li class="article-tag-list-item">
-        			<a href="javascript:void(0)" class="js-tag article-tag-list-link color3">webpack</a>
-        		</li>
-      		
-		</ul>
-	</div>
-
-      
-
-      
-        <p class="article-more-link">
-          <a class="article-more-a" href="/2022/09/01/vue%E5%B7%A5%E7%A8%8B%E5%8C%96/">展开全文 >></a>
-        </p>
-      
-
-      
-      <div class="clearfix"></div>
-    </div>
-  </div>
-</article>
-
-<aside class="wrap-side-operation">
-    <div class="mod-side-operation">
-        
-        <div class="jump-container" id="js-jump-container" style="display:none;">
-            <a href="javascript:void(0)" class="mod-side-operation__jump-to-top">
-                <i class="icon-font icon-back"></i>
-            </a>
-            <div id="js-jump-plan-container" class="jump-plan-container" style="top: -11px;">
-                <i class="icon-font icon-plane jump-plane"></i>
-            </div>
-        </div>
-        
-        
-    </div>
-</aside>
-
-
-
-
-  
-    <article id="post-Object.defineProperty() and Proxy()" class="article article-type-post  article-index" itemscope itemprop="blogPost">
-  <div class="article-inner">
-    
-      <header class="article-header">
-        
-  
-    <h1 itemprop="name">
-      <a class="article-title" href="/2022/09/01/Object.defineProperty()%20and%20Proxy()/">Object.defineProperty()与Proxy()的区别</a>
-    </h1>
-  
-
-        
-        <a href="/2022/09/01/Object.defineProperty()%20and%20Proxy()/" class="archive-article-date">
-  	<time datetime="2022-09-01T08:28:18.000Z" itemprop="datePublished"><i class="icon-calendar icon"></i>2022-09-01</time>
-</a>
-        
-      </header>
-    
-    <div class="article-entry" itemprop="articleBody">
-      
-        <h3 id="1、Object-defineProperty"><a href="#1、Object-defineProperty" class="headerlink" title="1、Object.defineProperty()"></a>1、Object.defineProperty()</h3><p>会直接在一个对象上一个新属性，或者修改一个对象的现有属性，并返回此对象</p>
-<p>Object.defineProperty(obj,prop,descriptor)<br>obj:要定义属性的对象<br>prop:要定义或修改的属性的的名称或Symbol<br>descriptor:要定义或修改的属性描述符</p>
-<figure class="highlight javascript"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br></pre></td><td class="code"><pre><span class="line"><span class="title class_">Object</span>.<span class="title function_">definedProperty</span>(obj,<span class="string">&#x27;name&#x27;</span>,&#123;</span><br><span class="line">    <span class="comment">// configurable:false, 默认值 是否可描述</span></span><br><span class="line">    <span class="comment">//enumerable:false, 默认值 是否可枚举</span></span><br><span class="line">    <span class="attr">value</span>: <span class="string">&#x27;kongzhi&#x27;</span>,</span><br><span class="line">    <span class="comment">//数据描述符</span></span><br><span class="line">    <span class="comment">//writable:false, 默认值 是否可写</span></span><br><span class="line">    <span class="comment">//存取描述符</span></span><br><span class="line">    <span class="comment">//get()&#123;&#125;,</span></span><br><span class="line">    <span class="comment">//set(v)&#123;&#125;</span></span><br><span class="line">    <span class="comment">//定义了value或writable，一定不能有get或set，反之亦然。</span></span><br><span class="line">&#125;);</span><br></pre></td></tr></table></figure>
-
-
-
-<h3 id="2、Proxy"><a href="#2、Proxy" class="headerlink" title="2、Proxy"></a>2、Proxy</h3><p>Proxy对象用于定义基本操作的自定义行为（如属性查找、赋值、枚举、函数调用等）</p>
-<figure class="highlight javascript"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br></pre></td><td class="code"><pre><span class="line"><span class="keyword">var</span> proxy=<span class="keyword">new</span> <span class="title class_">Proxy</span>(target,handler);</span><br><span class="line"><span class="comment">/*</span></span><br><span class="line"><span class="comment">	target:目标对象</span></span><br><span class="line"><span class="comment">	handler:通常以函数作为属性的对象，属性中的函数分别定义了在执行各种操作时代理 p 的行为。</span></span><br><span class="line"><span class="comment">	返回值 proxy:Proxy构造器的实例，操作这个对象会触发handler对应操作</span></span><br><span class="line"><span class="comment">*/</span></span><br></pre></td></tr></table></figure>
-
-<figure class="highlight javascript"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br></pre></td><td class="code"><pre><span class="line"><span class="comment">//handler对象是一个容纳一批特定属性符的占位符对象，包含Proxy的各个捕获器</span></span><br><span class="line">handler.<span class="title function_">getPrototypeOf</span>()</span><br><span class="line">handler.<span class="title function_">setPrototypeOf</span>()</span><br><span class="line">handler.<span class="title function_">isExtensible</span>()</span><br><span class="line">handler.<span class="title function_">preventExtensions</span>()</span><br><span class="line">handler.<span class="title function_">getOwnPropertyDescriptor</span>()</span><br><span class="line">handler.<span class="title function_">defineProperty</span>()</span><br><span class="line">handler.<span class="title function_">has</span>()<span class="comment">//in 操作符的捕捉器。</span></span><br><span class="line">handler.<span class="title function_">get</span>(target, property)</span><br><span class="line">handler.<span class="title function_">set</span>(target, property, value)</span><br><span class="line">handler.<span class="title function_">deleteProperty</span>()<span class="comment">//delete 操作符的捕捉器。</span></span><br><span class="line">handler.<span class="title function_">ownKeys</span>()</span><br><span class="line">handler.<span class="title function_">apply</span>()</span><br><span class="line">handler.<span class="title function_">construct</span>()<span class="comment">//new 操作符的捕捉器。</span></span><br></pre></td></tr></table></figure>
-
-<figure class="highlight javascript"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br><span class="line">19</span><br><span class="line">20</span><br></pre></td><td class="code"><pre><span class="line"><span class="comment">//Proxy只代理对象外层属性，可以使用递归代理对象内部对象，且Proxy代理对象时只会在调用时递归，不会一开始就全部递归，优化了性能</span></span><br><span class="line"><span class="keyword">let</span> obj=&#123;<span class="attr">a</span>:<span class="number">1</span>,<span class="attr">b</span>:&#123;<span class="attr">c</span>:<span class="number">2</span>&#125;&#125;;</span><br><span class="line"><span class="keyword">let</span> handler=&#123;</span><br><span class="line">  <span class="attr">get</span>:<span class="keyword">function</span>(<span class="params">obj,prop</span>)&#123;</span><br><span class="line">    <span class="keyword">const</span> v = <span class="title class_">Reflect</span>.<span class="title function_">get</span>(obj,prop);</span><br><span class="line">     <span class="comment">//递归 </span></span><br><span class="line">    <span class="keyword">if</span>(v !== <span class="literal">null</span> &amp;&amp; <span class="keyword">typeof</span> v === <span class="string">&#x27;object&#x27;</span>)&#123;</span><br><span class="line">      <span class="keyword">return</span> <span class="keyword">new</span> <span class="title class_">Proxy</span>(v,handler);<span class="comment">//代理内层</span></span><br><span class="line">    &#125;<span class="keyword">else</span>&#123;</span><br><span class="line">      <span class="keyword">return</span> v; <span class="comment">// 返回obj[prop]</span></span><br><span class="line">    &#125;，</span><br><span class="line">    </span><br><span class="line">  <span class="title function_">set</span>(<span class="params">obj,prop,value</span>)&#123;</span><br><span class="line">    <span class="keyword">return</span> <span class="title class_">Reflect</span>.<span class="title function_">set</span>(obj,prop,value);</span><br><span class="line">  &#125;</span><br><span class="line">&#125;;</span><br><span class="line"><span class="keyword">let</span> p=<span class="keyword">new</span> <span class="title class_">Proxy</span>(obj,handler);</span><br><span class="line"></span><br><span class="line">p.<span class="property">a</span><span class="comment">//会触发get方法</span></span><br><span class="line">p.<span class="property">b</span>.<span class="property">c</span><span class="comment">//会触发get方法获取p.b，不会触发.c的set，因为c没被代理。</span></span><br></pre></td></tr></table></figure>
-
-<h3 id="3、总结"><a href="#3、总结" class="headerlink" title="3、总结"></a>3、总结</h3><p>1、Proxy使用上比Object.defineProperty方便的多。<br>2、Proxy代理整个对象，Object.defineProperty只代理对象上的某个属性。<br>3、vue中，Proxy在调用时递归，Object.defineProperty在一开始就全部递归，Proxy性能优于Object.defineProperty。<br>4、对象上定义新属性时，Proxy可以监听到，Object.defineProperty监听不到。<br>5、数组新增删除修改时，Proxy可以监听到，Object.defineProperty监听不到。<br>6、Proxy不兼容IE，Object.defineProperty不兼容IE8及以下。</p>
-
-      
-
-      
-    </div>
-    <div class="article-info article-info-index">
-      
-      
-	<div class="article-tag tagcloud">
-		<i class="icon-price-tags icon"></i>
-		<ul class="article-tag-list">
-			 
-        		<li class="article-tag-list-item">
-        			<a href="javascript:void(0)" class="js-tag article-tag-list-link color4">vue</a>
-        		</li>
-      		
-		</ul>
-	</div>
-
-      
-
-      
-        <p class="article-more-link">
-          <a class="article-more-a" href="/2022/09/01/Object.defineProperty()%20and%20Proxy()/">展开全文 >></a>
-        </p>
-      
-
-      
-      <div class="clearfix"></div>
-    </div>
-  </div>
-</article>
-
-<aside class="wrap-side-operation">
-    <div class="mod-side-operation">
-        
-        <div class="jump-container" id="js-jump-container" style="display:none;">
-            <a href="javascript:void(0)" class="mod-side-operation__jump-to-top">
-                <i class="icon-font icon-back"></i>
-            </a>
-            <div id="js-jump-plan-container" class="jump-plan-container" style="top: -11px;">
-                <i class="icon-font icon-plane jump-plane"></i>
-            </div>
-        </div>
-        
-        
-    </div>
-</aside>
-
-
-
-
-  
-    <article id="post-vue" class="article article-type-post  article-index" itemscope itemprop="blogPost">
+            <article id="post-vue" class="article article-type-post " itemscope itemprop="blogPost">
   <div class="article-inner">
     
     <div class="article-entry" itemprop="articleBody">
@@ -705,6 +368,27 @@
       
 
       
+        <div class="page-reward">
+          <a href="javascript:;" class="page-reward-btn tooltip-top">
+            <div class="tooltip tooltip-east">
+            <span class="tooltip-item">
+              赏
+            </span>
+            <span class="tooltip-content">
+              <span class="tooltip-text">
+                <span class="tooltip-inner">
+                  <p class="reward-p"><i class="icon icon-quo-left"></i>谢谢你请我吃糖果<i class="icon icon-quo-right"></i></p>
+                  <div class="reward-box">
+                    
+                    
+                  </div>
+                </span>
+              </span>
+            </span>
+          </div>
+          </a>
+        </div>
+      
     </div>
     <div class="article-info article-info-index">
       
@@ -712,16 +396,79 @@
       
 
       
-        <p class="article-more-link">
-          <a class="article-more-a" href="/2022/08/31/vue/">展开全文 >></a>
-        </p>
-      
 
+      
+        
+<div class="share-btn share-icons tooltip-left">
+  <div class="tooltip tooltip-east">
+    <span class="tooltip-item">
+      <a href="javascript:;" class="share-sns share-outer">
+        <i class="icon icon-share"></i>
+      </a>
+    </span>
+    <span class="tooltip-content">
+      <div class="share-wrap">
+        <div class="share-icons">
+          <a class="weibo share-sns" href="javascript:;" data-type="weibo">
+            <i class="icon icon-weibo"></i>
+          </a>
+          <a class="weixin share-sns wxFab" href="javascript:;" data-type="weixin">
+            <i class="icon icon-weixin"></i>
+          </a>
+          <a class="qq share-sns" href="javascript:;" data-type="qq">
+            <i class="icon icon-qq"></i>
+          </a>
+          <a class="douban share-sns" href="javascript:;" data-type="douban">
+            <i class="icon icon-douban"></i>
+          </a>
+          <a class="qzone share-sns" href="javascript:;" data-type="qzone">
+            <i class="icon icon-qzone"></i>
+          </a>
+          <a class="facebook share-sns" href="javascript:;" data-type="facebook">
+            <i class="icon icon-facebook"></i>
+          </a>
+          <a class="twitter share-sns" href="javascript:;" data-type="twitter">
+            <i class="icon icon-twitter"></i>
+          </a>
+          <a class="google share-sns" href="javascript:;" data-type="google">
+            <i class="icon icon-google"></i>
+          </a>
+        </div>
+      </div>
+    </span>
+  </div>
+</div>
+
+<div class="page-modal wx-share js-wx-box">
+    <a class="close js-modal-close" href="javascript:;"><i class="icon icon-close"></i></a>
+    <p>扫一扫，分享到微信</p>
+    <div class="wx-qrcode">
+      <img src="//pan.baidu.com/share/qrcode?url=http://example.com/2022/08/31/vue/" alt="微信分享二维码">
+    </div>
+</div>
+
+<div class="mask js-mask"></div>
       
       <div class="clearfix"></div>
     </div>
   </div>
 </article>
+
+  
+<nav id="article-nav">
+  
+    <a href="/2022/09/01/Object.defineProperty()%20and%20Proxy()/" id="article-nav-newer" class="article-nav-link-wrap">
+      <i class="icon-circle-left"></i>
+      <div class="article-nav-title">
+        
+          Object.defineProperty()与Proxy()的区别
+        
+      </div>
+    </a>
+  
+  
+</nav>
+
 
 <aside class="wrap-side-operation">
     <div class="mod-side-operation">
@@ -741,8 +488,14 @@
 
 
 
+  
+  
+  
 
   
+
+  
+
   
 
 
@@ -765,8 +518,8 @@
     <script>
 	var yiliaConfig = {
 		mathjax: false,
-		isHome: true,
-		isPost: false,
+		isHome: false,
+		isPost: true,
 		isArchive: false,
 		isTag: false,
 		isCategory: false,
