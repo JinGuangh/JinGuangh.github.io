@@ -8,15 +8,15 @@
   <link rel="dns-prefetch" href="http://example.com">
   <title>Object.defineProperty()与Proxy()的区别 | Hexo</title>
   <meta name="viewport" content="width=device-width, initial-scale=1, maximum-scale=1">
-  <meta name="description" content="1、Object.defineProperty()会直接在一个对象上一个新属性，或者修改一个对象的现有属性，并返回此对象 Object.defineProperty(obj,prop,descriptor)obj:要定义属性的对象prop:要定义或修改的属性的的名称或Symboldescriptor:要定义或修改的属性描述符 1234567891011Object.definedProperty(">
+  <meta name="description" content="Object.defineProperty()、Proxy()的区别">
 <meta property="og:type" content="article">
 <meta property="og:title" content="Object.defineProperty()与Proxy()的区别">
 <meta property="og:url" content="http://example.com/2022/09/01/Object.defineProperty()%20and%20Proxy()/index.html">
 <meta property="og:site_name" content="Hexo">
-<meta property="og:description" content="1、Object.defineProperty()会直接在一个对象上一个新属性，或者修改一个对象的现有属性，并返回此对象 Object.defineProperty(obj,prop,descriptor)obj:要定义属性的对象prop:要定义或修改的属性的的名称或Symboldescriptor:要定义或修改的属性描述符 1234567891011Object.definedProperty(">
+<meta property="og:description" content="Object.defineProperty()、Proxy()的区别">
 <meta property="og:locale" content="en_US">
 <meta property="article:published_time" content="2022-09-01T08:28:18.000Z">
-<meta property="article:modified_time" content="2022-09-02T03:43:42.745Z">
+<meta property="article:modified_time" content="2022-09-07T03:45:03.670Z">
 <meta property="article:author" content="GuanghuiJin">
 <meta property="article:tag" content="vue">
 <meta name="twitter:card" content="summary">
@@ -184,7 +184,10 @@
     
     <div class="article-entry" itemprop="articleBody">
       
-        <h3 id="1、Object-defineProperty"><a href="#1、Object-defineProperty" class="headerlink" title="1、Object.defineProperty()"></a>1、Object.defineProperty()</h3><p>会直接在一个对象上一个新属性，或者修改一个对象的现有属性，并返回此对象</p>
+        <hr>
+<p>Object.defineProperty()、Proxy()的区别<span id="more"></span></p>
+<hr>
+<h3 id="1、Object-defineProperty"><a href="#1、Object-defineProperty" class="headerlink" title="1、Object.defineProperty()"></a>1、Object.defineProperty()</h3><p>会直接在一个对象上一个新属性，或者修改一个对象的现有属性，并返回此对象</p>
 <p>Object.defineProperty(obj,prop,descriptor)<br>obj:要定义属性的对象<br>prop:要定义或修改的属性的的名称或Symbol<br>descriptor:要定义或修改的属性描述符</p>
 <figure class="highlight javascript"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br></pre></td><td class="code"><pre><span class="line"><span class="title class_">Object</span>.<span class="title function_">definedProperty</span>(obj,<span class="string">&#x27;name&#x27;</span>,&#123;</span><br><span class="line">    <span class="comment">// configurable:false, 默认值 是否可描述</span></span><br><span class="line">    <span class="comment">//enumerable:false, 默认值 是否可枚举</span></span><br><span class="line">    <span class="attr">value</span>: <span class="string">&#x27;kongzhi&#x27;</span>,</span><br><span class="line">    <span class="comment">//数据描述符</span></span><br><span class="line">    <span class="comment">//writable:false, 默认值 是否可写</span></span><br><span class="line">    <span class="comment">//存取描述符</span></span><br><span class="line">    <span class="comment">//get()&#123;&#125;,</span></span><br><span class="line">    <span class="comment">//set(v)&#123;&#125;</span></span><br><span class="line">    <span class="comment">//定义了value或writable，一定不能有get或set，反之亦然。</span></span><br><span class="line">&#125;);</span><br></pre></td></tr></table></figure>
 
@@ -311,11 +314,6 @@
       </div>
     </a>
   
-  
-    <a href="/2022/08/31/vue/" id="article-nav-older" class="article-nav-link-wrap">
-      <div class="article-nav-title"></div>
-      <i class="icon-circle-right"></i>
-    </a>
   
 </nav>
 

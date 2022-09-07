@@ -6,18 +6,19 @@
   <meta name="renderer" content="webkit">
   <meta http-equiv="X-UA-Compatible" content="IE=edge" >
   <link rel="dns-prefetch" href="http://example.com">
-  <title>Hexo</title>
+  <title>Vue基础 | Hexo</title>
   <meta name="viewport" content="width=device-width, initial-scale=1, maximum-scale=1">
-  <meta name="description" content="一、Vue基础1、简介构建用户界面的渐进式框架，采用自底向上增量开发的设计，只关注视图层，完全有能力驱动采用单文件组件和Vue生态系统支持的库开发的复杂单页应用。目标是通过尽可能简单的API实现响应的数据绑定和组合的视图组件。 声明式渲染–组件系统–客户端路由–大规模状态管理–构建工具 1.2、声明式渲染采用简洁的模板语法来声明式将数据渲染进DOM的系统 123456789101112131415">
+  <meta name="description" content="Vue基础知识">
 <meta property="og:type" content="article">
-<meta property="og:title" content="Hexo">
-<meta property="og:url" content="http://example.com/2022/08/31/vue/index.html">
+<meta property="og:title" content="Vue基础">
+<meta property="og:url" content="http://example.com/2022/09/05/vue%E5%9F%BA%E7%A1%80/index.html">
 <meta property="og:site_name" content="Hexo">
-<meta property="og:description" content="一、Vue基础1、简介构建用户界面的渐进式框架，采用自底向上增量开发的设计，只关注视图层，完全有能力驱动采用单文件组件和Vue生态系统支持的库开发的复杂单页应用。目标是通过尽可能简单的API实现响应的数据绑定和组合的视图组件。 声明式渲染–组件系统–客户端路由–大规模状态管理–构建工具 1.2、声明式渲染采用简洁的模板语法来声明式将数据渲染进DOM的系统 123456789101112131415">
+<meta property="og:description" content="Vue基础知识">
 <meta property="og:locale" content="en_US">
-<meta property="article:published_time" content="2022-08-31T13:43:02.249Z">
-<meta property="article:modified_time" content="2022-09-03T14:40:54.934Z">
+<meta property="article:published_time" content="2022-09-05T13:00:18.000Z">
+<meta property="article:modified_time" content="2022-09-07T03:47:28.686Z">
 <meta property="article:author" content="GuanghuiJin">
+<meta property="article:tag" content="vue">
 <meta name="twitter:card" content="summary">
   
     <link rel="alternative" href="/atom.xml" title="Hexo" type="application/atom+xml">
@@ -163,12 +164,30 @@
             <canvas data-colors="#eaeaea" data-sectionHeight="100" data-contentId="js-content" id="myCanvas1" class="anm-canvas"></canvas>
           </div>
           <div id="js-content" class="content-ll">
-            <article id="post-vue" class="article article-type-post " itemscope itemprop="blogPost">
+            <article id="post-vue基础" class="article article-type-post " itemscope itemprop="blogPost">
   <div class="article-inner">
+    
+      <header class="article-header">
+        
+  
+    <h1 class="article-title" itemprop="name">
+      Vue基础
+    </h1>
+  
+
+        
+        <a href="/2022/09/05/vue%E5%9F%BA%E7%A1%80/" class="archive-article-date">
+  	<time datetime="2022-09-05T13:00:18.000Z" itemprop="datePublished"><i class="icon-calendar icon"></i>2022-09-05</time>
+</a>
+        
+      </header>
     
     <div class="article-entry" itemprop="articleBody">
       
-        <h1 id="一、Vue基础"><a href="#一、Vue基础" class="headerlink" title="一、Vue基础"></a>一、Vue基础</h1><h2 id="1、简介"><a href="#1、简介" class="headerlink" title="1、简介"></a>1、简介</h2><p>构建用户界面的渐进式框架，采用自底向上增量开发的设计，只关注视图层，完全有能力驱动采用单文件组件和Vue生态系统支持的库开发的复杂单页应用。<br>目标是通过尽可能简单的API实现响应的数据绑定和组合的视图组件。</p>
+        <hr>
+<p> Vue基础知识 <span id="more"></span></p>
+<hr>
+<h1 id="一、Vue基础"><a href="#一、Vue基础" class="headerlink" title="一、Vue基础"></a>一、Vue基础</h1><h2 id="1、简介"><a href="#1、简介" class="headerlink" title="1、简介"></a>1、简介</h2><p>构建用户界面的渐进式框架，采用自底向上增量开发的设计，只关注视图层，完全有能力驱动采用单文件组件和Vue生态系统支持的库开发的复杂单页应用。<br>目标是通过尽可能简单的API实现响应的数据绑定和组合的视图组件。</p>
 <p>声明式渲染–组件系统–客户端路由–大规模状态管理–构建工具</p>
 <h3 id="1-2、声明式渲染"><a href="#1-2、声明式渲染" class="headerlink" title="1.2、声明式渲染"></a>1.2、声明式渲染</h3><p>采用简洁的模板语法来声明式将数据渲染进DOM的系统</p>
 <figure class="highlight javascript"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br></pre></td><td class="code"><pre><span class="line"><span class="comment">//引入Vue</span></span><br><span class="line">&lt;script src=<span class="string">&quot;./js/vue.js&quot;</span>&gt;&lt;/script&gt; </span><br><span class="line"><span class="comment">//数据和DOM绑定在一起，元素都是响应式的</span></span><br><span class="line"><span class="comment">//绑定插入的文本内容</span></span><br><span class="line">&lt;body&gt;</span><br><span class="line">    <span class="language-xml"><span class="tag">&lt;<span class="name">div</span> <span class="attr">id</span>=<span class="string">&quot;app&quot;</span>&gt;</span></span></span><br><span class="line"><span class="language-xml">        &#123;&#123; message &#125;&#125;</span></span><br><span class="line"><span class="language-xml">    <span class="tag">&lt;/<span class="name">div</span>&gt;</span></span></span><br><span class="line">    <span class="language-xml"><span class="tag">&lt;<span class="name">script</span>&gt;</span><span class="language-javascript"></span></span></span><br><span class="line"><span class="language-javascript"><span class="language-xml">        <span class="keyword">var</span> app = <span class="keyword">new</span> <span class="title class_">Vue</span>(&#123;</span></span></span><br><span class="line"><span class="language-javascript"><span class="language-xml">            <span class="attr">el</span>: <span class="string">&#x27;#app&#x27;</span>,</span></span></span><br><span class="line"><span class="language-javascript"><span class="language-xml">            <span class="attr">data</span>:&#123;</span></span></span><br><span class="line"><span class="language-javascript"><span class="language-xml">                <span class="attr">message</span>:<span class="string">&#x27;Hello Vue!&#x27;</span></span></span></span><br><span class="line"><span class="language-javascript"><span class="language-xml">            &#125;</span></span></span><br><span class="line"><span class="language-javascript"><span class="language-xml">        &#125;)       </span></span></span><br><span class="line"><span class="language-javascript"><span class="language-xml">    </span><span class="tag">&lt;/<span class="name">script</span>&gt;</span></span></span><br><span class="line"><span class="comment">// Hello Vue!</span></span><br></pre></td></tr></table></figure>
@@ -393,6 +412,17 @@
     <div class="article-info article-info-index">
       
       
+	<div class="article-tag tagcloud">
+		<i class="icon-price-tags icon"></i>
+		<ul class="article-tag-list">
+			 
+        		<li class="article-tag-list-item">
+        			<a href="javascript:void(0)" class="js-tag article-tag-list-link color4">vue</a>
+        		</li>
+      		
+		</ul>
+	</div>
+
       
 
       
@@ -443,7 +473,7 @@
     <a class="close js-modal-close" href="javascript:;"><i class="icon icon-close"></i></a>
     <p>扫一扫，分享到微信</p>
     <div class="wx-qrcode">
-      <img src="//pan.baidu.com/share/qrcode?url=http://example.com/2022/08/31/vue/" alt="微信分享二维码">
+      <img src="//pan.baidu.com/share/qrcode?url=http://example.com/2022/09/05/vue%E5%9F%BA%E7%A1%80/" alt="微信分享二维码">
     </div>
 </div>
 
@@ -457,15 +487,20 @@
   
 <nav id="article-nav">
   
-    <a href="/2022/09/01/Object.defineProperty()%20and%20Proxy()/" id="article-nav-newer" class="article-nav-link-wrap">
+    <a href="/2022/09/05/vue-cli%E6%9E%84%E5%BB%BAvue%E5%B7%A5%E7%A8%8B%20/" id="article-nav-newer" class="article-nav-link-wrap">
       <i class="icon-circle-left"></i>
       <div class="article-nav-title">
         
-          Object.defineProperty()与Proxy()的区别
+          vue-cli构建vue工程
         
       </div>
     </a>
   
+  
+    <a href="/2022/09/02/Promise%E7%9A%84%E5%AE%9E%E4%BE%8B%E5%92%8C%E9%9D%99%E6%80%81%E6%96%B9%E6%B3%95/" id="article-nav-older" class="article-nav-link-wrap">
+      <div class="article-nav-title">Promise的静态方法、实例方法</div>
+      <i class="icon-circle-right"></i>
+    </a>
   
 </nav>
 
